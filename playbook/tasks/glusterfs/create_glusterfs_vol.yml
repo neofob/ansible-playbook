@@ -1,0 +1,16 @@
+---
+# This only creates the gluster volume with all the bricks
+- name: Setup brick dir if it is not a mounted dir
+  file:
+    path: "{{ glusterfs_brick_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Create glusterfs volume
+  gluster_volume:
+    state: present
+    name: "{{ glusterfs_vol_name }}"
+    bricks: "{{ glusterfs_brick_dir }}"
+    cluster: "{{ ansible_play_hosts }}"
+    force: true
+  run_once: true

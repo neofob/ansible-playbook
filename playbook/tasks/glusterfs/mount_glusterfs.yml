@@ -1,0 +1,15 @@
+---
+# Mount gluster volume on all hosts, using the 1st node in the cluster
+- name: Create mount point
+  file:
+    path: "{{ glusterfs_mount_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Mount gluster volume
+  mount:
+    fstype: glusterfs
+    opts: defaults,_netdev
+    path: "{{ glusterfs_mount_dir }}"
+    src: "{{ groups['all'][0] }}:/{{ glusterfs_vol_name }}"
+    state: mounted

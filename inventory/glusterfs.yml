@@ -1,0 +1,16 @@
+---
+all:
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  hosts:
+    g1.local:
+    g2.local:
+    g3.local:
+    g4.local:
+  children:
+    glusterfs:
+      hosts:
+        g1.local:
+        g2.local:
+        g3.local:
+        g4.local:

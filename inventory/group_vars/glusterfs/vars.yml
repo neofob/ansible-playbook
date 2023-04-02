@@ -6,3 +6,6 @@ glusterfs_ppa_version: "11"
 glusterfs_mount_dir: /mnt/gstore
 glusterfs_brick_dir: /data/brick0
 glusterfs_vol_name: gstore
+
+glusterfs_replicas: 1
+glusterfs_rebalance: True

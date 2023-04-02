@@ -17,3 +17,8 @@ Default variables, set in inventory
 On `glusterfs_brick_dir`
 -----------------------
 This should be a dedicated mounted partition to be used as an exported `brick`.
+
+
+On hostname
+-----------
+All hostnames must be resolvable on any server node or client.

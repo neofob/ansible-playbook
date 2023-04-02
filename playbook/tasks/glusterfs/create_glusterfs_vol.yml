@@ -12,5 +12,7 @@
     name: "{{ glusterfs_vol_name }}"
     bricks: "{{ glusterfs_brick_dir }}"
     cluster: "{{ ansible_play_hosts }}"
+    replicas: "{{ glusterfs_replicas }}"
+    rebalance: "{{ glusterfs_rebalance }}"
     force: true
   run_once: true

@@ -6,7 +6,10 @@
     state: directory
     mode: 0755
 
-- name: Create glusterfs volume
+# reference:
+# https://github.com/kubernetes-sigs/kubespray/blob/master/contrib/network-storage/glusterfs/roles/glusterfs/server/tasks/main.yml
+
+- name: Create glusterfs volume with replicas
   gluster_volume:
     state: present
     name: "{{ glusterfs_vol_name }}"
@@ -16,3 +19,14 @@
     rebalance: "{{ glusterfs_rebalance }}"
     force: true
   run_once: true
+  when: glusterfs_replicas | int > 1
+
+- name: Create glusterfs volume without replicas
+  gluster_volume:
+    state: present
+    name: "{{ glusterfs_vol_name }}"
+    bricks: "{{ glusterfs_brick_dir }}"
+    cluster: "{{ ansible_play_hosts }}"
+    force: true
+  run_once: true
+  when: glusterfs_replicas | int <= 1

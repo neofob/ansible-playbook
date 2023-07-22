@@ -1,18 +1,27 @@
 ---
+# Example inventory for all hosts
 all:
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
   hosts:
     g0.local:
     g1.local:
-    g2.local:
     swarm0.local:
     swarm1.local:
   children:
+    greatlake:
+      hosts:
+        g0.local:
+        g1.local:
+        swarm0.local:
+        swarm1.local:
     glusterfs:
       hosts:
         g0.local:
         g1.local:
-        g2.local:
+        swarm0.local:
+        swarm1.local:
+    mdadm:
+      hosts:
         swarm0.local:
         swarm1.local:

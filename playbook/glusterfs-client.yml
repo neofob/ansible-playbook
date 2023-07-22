@@ -1,8 +1,8 @@
 ---
+# Variables are set for each host in inventory/host_vars/hostname.yml
 - hosts: all
   become: yes
   roles:
     - geerlingguy.glusterfs
   tasks:
-    - include_tasks: tasks/glusterfs/create_glusterfs_vol.yml
     - include_tasks: tasks/glusterfs/mount_glusterfs.yml

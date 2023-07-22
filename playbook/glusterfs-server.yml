@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - geerlingguy.glusterfs
+  tasks:
+    - include_tasks: tasks/glusterfs/create_glusterfs_vol.yml

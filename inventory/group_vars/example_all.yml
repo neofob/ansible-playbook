@@ -1,0 +1,63 @@
+---
+# Default variables for all ephemeral nodes
+# rename to all.yml
+
+sysctl_list:
+  - name: "vm.dirty_writeback_centisecs"
+    value: 60000
+    state: present
+  - name: "vm.dirty_ratio"
+    value: 80
+    state: present
+  - name: "vm.dirty_background_ratio"
+    value: 50
+    state: present
+  - name: "vm.swappiness"
+    value: 1
+    state: present
+  - name: "vm.vfs_cache_pressure"
+    value: 100
+    state: present
+  - name: "vm.page-cluster"
+    value: 0
+    state: present
+  - name: "net.ipv6.conf.all.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.default.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.lo.disable_ipv6"
+    value: 1
+    state: present
+
+package_list:
+  - bc
+  - bison
+  - build-essential
+  - chrony
+  - flex
+  - git
+  - libelf-dev
+  - libssl-dev
+  - lm-sensors
+  - lz4
+  - mc
+  - pv
+  - python3-pip
+  - sshfs
+  - sysstat
+  - vim-nox
+  - virtualenv
+  - virtualenvwrapper
+  - xz-utils
+  - zstd
+
+# Glusterfs setup for tini_glusterfs
+glusterfs_brick_dir: /opt/brick0
+glusterfs_vol_name: tinivol
+glusterfs_mount_dir: /mnt/tinivol
+
+ansible_ssh_user: vagrant
+ansible_python_interpreter: /usr/bin/python3
+ansible_sudo_pass: "OneGreatPassToEndAllPass"

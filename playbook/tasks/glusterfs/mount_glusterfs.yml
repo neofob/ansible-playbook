@@ -11,5 +11,5 @@
     fstype: glusterfs
     opts: defaults,_netdev
     path: "{{ glusterfs_mount_dir }}"
-    src: "{{ groups['all'][0] }}:/{{ glusterfs_vol_name }}"
+    src: "{{ glusterfs_server }}:/{{ glusterfs_vol_name }}"
     state: mounted

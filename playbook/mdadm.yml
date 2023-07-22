@@ -1,0 +1,8 @@
+---
+# Setup mdadm for hosts
+# Variables are set in inventory/host_vars/target_host
+#
+- hosts: all
+  become: true
+  roles:
+    - role: mrlesmithjr.mdadm

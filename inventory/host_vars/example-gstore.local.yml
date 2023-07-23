@@ -1,0 +1,39 @@
+---
+# filename: example-gstore.local.yml
+# Example for a big gluster server made of 4 drives RAID5
+# 4x8T, RAID5, 24T available
+# Specific vars for host gstore.local
+# these are for mdadm role
+mdadm_arrays:
+  # Define array name
+- name: 'md0'
+  # Define disk devices to assign to array
+  devices:
+    - '/dev/sda'
+    - '/dev/sdb'
+    - '/dev/sdc'
+    - '/dev/sdd'
+  # Define filesystem to partition array with
+  filesystem: 'ext4'
+  # Define the array raid level
+  # 0|1|4|5|6|10
+  level: '5'
+  # Define mountpoint for array device
+  mountpoint: '/mnt/md0'
+  # Define if array should be present or absent
+  state: 'present'
+  # Set mount options (optional)
+  opts: 'noatime'
+
+#############################################################
+# These are for
+# * geerlingguy.glusterfs role (server)
+# * geerlingguy.glusterfs role (client)
+# These override the vars set in inventory/group_vars/all.yml
+# They are specific to each host and the last
+
+# These are are for gstore
+glusterfs_mount_dir: /mnt/gstore
+glusterfs_brick_dir: /mnt/md0/brick0
+glusterfs_server: gstore.local
+glusterfs_vol_name: gstore

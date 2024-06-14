@@ -1,0 +1,7 @@
+---
+# Bootstrap python-apt for apt module
+- hosts: all
+  become: yes
+  tasks:
+  - name:
+    command: apt-get install -yq python3-apt

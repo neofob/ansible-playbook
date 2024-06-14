@@ -1,0 +1,7 @@
+---
+- name: cleanup
+  become: yes
+  apt:
+    force_apt_get: yes
+    autoclean: yes
+    autoremove: yes

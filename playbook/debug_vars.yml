@@ -1,0 +1,14 @@
+---
+# filename: debug_vars.yml
+# A debug playbook to print all vars
+# ansible-playbook -i vagrant.py --limit=special_vm ./debug_vars.yml
+# ansible-playbook -i digital_ocean.py --limit=[that_vm|vm_tag] ./debug_vars.yml
+- hosts: all
+  tasks:
+    - name: print out debug info
+      debug:
+        var: groups
+
+    - name: print out debug info
+      debug:
+        var: hostvars

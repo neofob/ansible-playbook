@@ -1,0 +1,15 @@
+---
+- name: Setup mount points
+  file:
+    path: "{{ tmpfs_mount_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Mount tmpfs
+  mount:
+    path: "{{ tmpfs_mount_dir }}"
+    src: "tmpfs"
+    fstype: "tmpfs"
+    opts: "size={{ tmpfs_size }}"
+    state: mounted
+

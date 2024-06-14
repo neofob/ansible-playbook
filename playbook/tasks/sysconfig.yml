@@ -1,0 +1,14 @@
+---
+# Setup /etc/sysctl.config
+# sysctl_list:
+  # - name: vm.swappiness
+  #   value: 1
+  #   state: present
+
+- name: Set up /etc/sysctl.conf
+  ansible.posix.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value | int }}"
+    state: "{{ item.state }}"
+    sysctl_set: yes
+  loop: "{{ sysctl_list }}"

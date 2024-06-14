@@ -1,0 +1,10 @@
+---
+# Set up tmpfs in fstab
+
+- name: Setup tmpfs mount for /tmp
+  ansible.posix.mount:
+    src: tmpfs
+    path: /tmp
+    state: mounted
+    opts: "noatime,defaults"
+    fstype: tmpfs

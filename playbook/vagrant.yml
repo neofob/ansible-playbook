@@ -1,0 +1,9 @@
+---
+- hosts: '{{ target }}'
+  become: yes
+  vars:
+    - vagrant_tmp_dir: "/tmp/"
+    - vagrant_version: "2.2.19"
+    - vagrant_virtualbox_install: False
+  roles:
+  - ansible-role-vagrant

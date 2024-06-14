@@ -1,0 +1,9 @@
+---
+# Setup .vimrc for root
+- name: Upload .vimrc for root user
+  copy:
+    src: files/vimrc
+    dest: /root/.vimrc
+    owner: root
+    group: root
+    mode: '0644'

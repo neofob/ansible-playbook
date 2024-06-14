@@ -1,0 +1,13 @@
+---
+# Setup ephemeral nodes
+- hosts: all
+  become: yes
+  tasks:
+    - name: Setup some system configs
+      include_tasks: tasks/sysconfig.yml
+    - name: Setup tmpfs
+      include_tasks: tasks/tmpfs.yml
+    - name: Install packages
+      include_tasks: tasks/packages.yml
+    - name: Setup dot files
+      include_tasks: tasks/upload_dotfiles.yml

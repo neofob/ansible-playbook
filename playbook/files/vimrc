@@ -1,0 +1,3 @@
+set bg=light hls nu
+syntax on
+set expandtab ts=2 sw=2

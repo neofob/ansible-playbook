@@ -1,10 +1,9 @@
 ---
 # Default variables for all ephemeral nodes
-# rename to all.yml
 
 sysctl_list:
   - name: "vm.dirty_writeback_centisecs"
-    value: 60000
+    value: 6000
     state: present
   - name: "vm.dirty_ratio"
     value: 80
@@ -30,23 +29,33 @@ sysctl_list:
   - name: "net.ipv6.conf.lo.disable_ipv6"
     value: 1
     state: present
+  - name: "fs.inotify.max_user_watches"
+    value: 9999999
+    state: present
+  - name: "fs.inotify.max_user_instances"
+    value: 9999999
+    state: present
 
 package_list:
   - bc
   - bison
   - build-essential
   - chrony
+  - cowsay
   - flex
   - git
   - libelf-dev
   - libssl-dev
   - lm-sensors
+  - lolcat
   - lz4
   - mc
   - pv
+  - python3-dev
   - python3-pip
   - sshfs
   - sysstat
+  - tree
   - vim-nox
   - virtualenv
   - virtualenvwrapper
@@ -60,4 +69,4 @@ glusterfs_mount_dir: /mnt/tinivol
 
 ansible_ssh_user: vagrant
 ansible_python_interpreter: /usr/bin/python3
-ansible_sudo_pass: "OneGreatPassToEndAllPass"
+ansible_sudo_pass: "YourInsecurePasswdHere"

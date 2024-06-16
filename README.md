@@ -6,7 +6,7 @@ A collection of Ansible playbooks
 * `bootstrap.yml`: install `python3-apt`
 * `debug_hosts.yml`: print out hosts vars
 * `debug_vars.yml`: print vars
-* `docker.yml`: install docker
+* `install_docker_ubuntu.yml`: install docker in Ubuntu machine
 * `setup_nodes.yml`: setup a node with frequent used packages and other configs
 * `upgrade.yml`: run `apt-get dist-upgrade`
 * `vagrant.yml`: install vagrant
@@ -14,7 +14,7 @@ A collection of Ansible playbooks
 
 Setting up the Ansible environment:
 ```
-mkvirtualenv `which python3` ansible
+mkvirtualenv ansible -p `which python3`
 pip install ansible
 ansible-galaxy install -r requirements.yml
 ```

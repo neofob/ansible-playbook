@@ -5,3 +5,4 @@
 #- src: andrewrothstein.gitlab-ci-multi-runner
 #- src: DavidWittman.redis
 - src: andrewrothstein.virtualbox
+- src: haxorof.docker_ce

@@ -1,0 +1,6 @@
+---
+# Install docker-compose from github.com/docker/compose
+# or from another source
+- hosts: all
+  tasks:
+    - include_tasks: tasks/docker-compose.yml

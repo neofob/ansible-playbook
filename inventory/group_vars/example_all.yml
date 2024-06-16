@@ -43,6 +43,7 @@ package_list:
   - chrony
   - cowsay
   - flex
+  - gcc
   - git
   - libelf-dev
   - libssl-dev
@@ -70,3 +71,6 @@ glusterfs_mount_dir: /mnt/tinivol
 ansible_ssh_user: vagrant
 ansible_python_interpreter: /usr/bin/python3
 ansible_sudo_pass: "YourInsecurePasswdHere"
+
+docker_compose_url: https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-linux-x86_64
+docker_compose_sha256: ddc876fe2a89d5b7ea455146b0975bfe52904eecba9b192193377d6f99d69ad9

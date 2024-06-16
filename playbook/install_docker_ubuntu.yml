@@ -1,0 +1,30 @@
+---
+# source: https://gist.github.com/rbq/886587980894e98b23d0eee2a1d84933
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install prerequisites for Docker repository
+    apt:
+      name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg2', 'software-properties-common']
+      update_cache: yes
+
+  - name: Add Docker official GPG key
+    apt_key:
+      state: present
+      keyserver: 'https://download.docker.com/linux/ubuntu/gpg'
+      id: 7EA0A9C3F273FCD8
+
+  - name: check Docker apt key has not been altered
+    command: apt-key fingerprint 0EBFCD88
+    register: fingerprint_check
+    changed_when: False
+    failed_when: "'9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88' not in fingerprint_check.stdout"
+
+  - name: Add Docker APT repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+  - name: Install Docker CE
+    apt:
+      name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+      update_cache: yes

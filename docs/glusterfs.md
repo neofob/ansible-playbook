@@ -9,10 +9,10 @@ ansible-playbook -i inventory/gluster_hosts.yml playbook/glusterfs.yml
 ```
 
 Default variables, set in inventory
-* `glusterfs_ppa_version: "11"`
-* `glusterfs_brick_dir: /data/brick0`
-* `glusterfs_vol_name: gstore
-* `glusterfs_mount_dir: /mnt/gstore`
+* `glusterfs_ppa_version`: "11"
+* `glusterfs_brick_dir`: `/data/brick0`
+* `glusterfs_vol_name`: `gstore`
+* `glusterfs_mount_dir`: `/mnt/gstore`
 
 On `glusterfs_brick_dir`
 -----------------------

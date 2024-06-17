@@ -1,0 +1,17 @@
+---
+# Install docker-compose from github
+
+- name: Download docker-compose from {{ docker_compose_url }}
+  ansible.builtin.get_url:
+    url: {{ docker_compose_url }}
+    dest: "/tmp/docker-compose"
+    mode: "0755"
+    checksum: "sha256:{{ docker_compose_sha256 }}"
+
+- name: Copy docker-compose to /usr/local/bin
+  ansible.builtin.copy:
+    src: /tmp/docker-compose
+    dest: /usr/local/bin/docker-compose
+    owner: root
+    group: docker
+    mode: "0755"

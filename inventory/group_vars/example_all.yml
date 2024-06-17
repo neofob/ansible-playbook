@@ -41,10 +41,12 @@ package_list:
   - bison
   - build-essential
   - chrony
+  - colordiff
   - cowsay
   - flex
   - gcc
   - git
+  - jq
   - libelf-dev
   - libssl-dev
   - lm-sensors

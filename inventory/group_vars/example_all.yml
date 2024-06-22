@@ -2,6 +2,9 @@
 # Default variables for all ephemeral nodes
 
 sysctl_list:
+  - name: "net.ipv4.ip_forward"
+    value: 1
+    state: present
   - name: "vm.dirty_writeback_centisecs"
     value: 6000
     state: present

@@ -1,0 +1,3 @@
+---
+# Specific vars for host k3.local
+# The common ones are set in in group_vars/k3s/vars.yml

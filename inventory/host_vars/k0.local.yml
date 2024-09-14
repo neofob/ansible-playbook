@@ -1,7 +1,5 @@
 ---
 # Specific vars for host k0.local
-tmpfs_mount_dir: /tmp
-tmpfs_size: 1G
 
 # these are for mdadm role
 mdadm_arrays:
@@ -29,7 +27,4 @@ mdadm_arrays:
 # * geerlingguy.glusterfs role (client)
 # These override the vars set in inventory/group_vars/all.yml
 # They are specific to each host and the last
-glusterfs_mount_dir: /mnt/pasture
 glusterfs_brick_dir: /mnt/md0/brick0
-glusterfs_server: k0.local
-glusterfs_vol_name: pasture

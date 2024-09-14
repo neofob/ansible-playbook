@@ -6,3 +6,4 @@
 #- src: DavidWittman.redis
 - src: andrewrothstein.virtualbox
 - src: haxorof.docker_ce
+- src: mrlesmithjr.mdadm

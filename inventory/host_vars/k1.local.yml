@@ -1,0 +1,14 @@
+---
+# Specific vars for host k1.local
+tmpfs_mount_dir: /tmp
+tmpfs_size: 1G
+
+#############################################################
+# These are for
+# * geerlingguy.glusterfs role (server)
+# * geerlingguy.glusterfs role (client)
+# These override the vars set in inventory/group_vars/all.yml
+# They are specific to each host and the last
+glusterfs_mount_dir: /mnt/pasture
+glusterfs_server: k0.local
+glusterfs_vol_name: pasture

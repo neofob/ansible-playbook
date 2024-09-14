@@ -1,0 +1,28 @@
+[init]
+  defaultBranch = main
+
+[user]
+	name = Tuan T. Pham
+	email = tuan@vt.edu
+
+[core]
+	editor = vim
+
+[color]
+	ui = auto
+	branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+
+[alias]
+	st = status -uno
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cs = commit -v --signoff
+
+# lg: https://coderwall.com/p/euwpig/a-better-git-log
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

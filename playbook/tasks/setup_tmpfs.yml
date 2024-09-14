@@ -5,11 +5,11 @@
     state: directory
     mode: 0755
 
+# remount will block writing to /tmp atm
 - name: Mount tmpfs
-  mount:
+  ansible.posix.mount:
+    fstype: tmpfs
+    opts: "size={{ tmpfs_size }},noatime,defaults"
     path: "{{ tmpfs_mount_dir }}"
-    src: "tmpfs"
-    fstype: "tmpfs"
-    opts: "size={{ tmpfs_size }}"
-    state: mounted
-
+    src: tmpfs
+    state: present

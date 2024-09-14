@@ -1,10 +1,8 @@
 ---
 # Default variables for all ephemeral nodes
+# rename to all.yml
 
 sysctl_list:
-  - name: "net.ipv4.ip_forward"
-    value: 1
-    state: present
   - name: "vm.dirty_writeback_centisecs"
     value: 6000
     state: present
@@ -32,50 +30,40 @@ sysctl_list:
   - name: "net.ipv6.conf.lo.disable_ipv6"
     value: 1
     state: present
-  - name: "fs.inotify.max_user_watches"
-    value: 9999999
-    state: present
-  - name: "fs.inotify.max_user_instances"
-    value: 9999999
-    state: present
 
 package_list:
   - bc
   - bison
   - build-essential
   - chrony
-  - colordiff
-  - cowsay
   - flex
-  - gcc
   - git
-  - jq
   - libelf-dev
   - libssl-dev
   - lm-sensors
-  - lolcat
   - lz4
   - mc
-  - pv
-  - python3-dev
+  - network-manager
   - python3-pip
   - sshfs
   - sysstat
-  - tree
   - vim-nox
   - virtualenv
   - virtualenvwrapper
   - xz-utils
   - zstd
 
-# Glusterfs setup for tini_glusterfs
-glusterfs_brick_dir: /opt/brick0
-glusterfs_vol_name: tinivol
-glusterfs_mount_dir: /mnt/tinivol
+# Glusterfs setup for pasture_glusterfs
+glusterfs_vol_name: pasture
+glusterfs_mount_dir: /mnt/pasture
+glusterfs_server: k0.local
 
 ansible_ssh_user: vagrant
 ansible_python_interpreter: /usr/bin/python3
-ansible_sudo_pass: "YourInsecurePasswdHere"
+ansible_sudo_pass: "vagrant"
+
+tmpfs_mount_dir: /tmp
+tmpfs_size: 1G
 
 docker_compose_url: https://github.com/docker/compose/releases/download/v2.29.3/docker-compose-linux-x86_64
 docker_compose_sha256: 241b75fe0f8194a48d01f99d683aa1100579b21caa60d2d78c9c824855c57937

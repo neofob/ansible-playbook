@@ -1,0 +1,34 @@
+---
+# Inventory for all K3s hosts
+all:
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  hosts:
+    k0.local:
+    k1.local:
+    k2.local:
+    k3.local:
+  children:
+    k3s:
+      hosts:
+        k0.local:
+        k1.local:
+        k2.local:
+        k3.local:
+    server:
+      hosts:
+        k0.local:
+    agent:
+      hosts:
+        k1.local:
+        k2.local:
+        k3.local:
+    glusterfs:
+      hosts:
+        k0.local:
+        k1.local:
+        k2.local:
+        k3.local:
+    mdadm:
+      hosts:
+        k0.local:

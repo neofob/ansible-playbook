@@ -6,7 +6,7 @@
     - name: Setup some system configs
       include_tasks: tasks/sysconfig.yml
     - name: Setup tmpfs
-      include_tasks: tasks/tmpfs.yml
+      include_tasks: tasks/setup_tmpfs.yml
     - name: Install packages
       include_tasks: tasks/packages.yml
     - name: Setup dot files

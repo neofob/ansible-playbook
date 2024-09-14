@@ -17,6 +17,7 @@ Setting up the Ansible environment:
 mkvirtualenv ansible -p `which python3`
 pip install ansible
 ansible-galaxy install -r requirements.yml
+ansible-galaxy collection install gluster.gluster
 ```
 
 

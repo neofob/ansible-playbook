@@ -7,3 +7,12 @@
     owner: root
     group: root
     mode: '0644'
+
+# Setup .gitconfig for root
+- name: Upload .gitconfig for root user
+  copy:
+    src: files/gitconfig
+    dest: /root/.gitconfig
+    owner: root
+    group: root
+    mode: '0644'

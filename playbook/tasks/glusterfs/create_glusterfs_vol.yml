@@ -10,7 +10,7 @@
 # https://github.com/kubernetes-sigs/kubespray/blob/master/contrib/network-storage/glusterfs/roles/glusterfs/server/tasks/main.yml
 
 - name: Create glusterfs volume with replicas
-  gluster_volume:
+  gluster.gluster.gluster_volume:
     state: present
     name: "{{ glusterfs_vol_name }}"
     bricks: "{{ glusterfs_brick_dir }}"
@@ -22,7 +22,7 @@
   when: glusterfs_replicas | int > 1
 
 - name: Create glusterfs volume without replicas
-  gluster_volume:
+  gluster.gluster.gluster_volume:
     state: present
     name: "{{ glusterfs_vol_name }}"
     bricks: "{{ glusterfs_brick_dir }}"

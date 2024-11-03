@@ -11,4 +11,4 @@
     opts: "size={{ tmpfs_size }},noatime,defaults"
     path: "{{ tmpfs_mount_dir }}"
     src: tmpfs
-    state: remounted
+    state: mounted

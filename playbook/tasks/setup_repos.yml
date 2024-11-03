@@ -1,0 +1,12 @@
+---
+# Setup apt repos for the host
+# apt_list:
+#   - "deb http://us.archive.ubuntu.com/ubuntu noble noble-updates noble-backports"
+#   - "deb http://us.archive.ubuntu.com/ubuntu main restricted universe multiverse"
+#   - "deb http://security.ubuntu.com/ubuntu main restricted universe multiverse"
+#
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: "{{ item }}"
+    state: present
+  loop: "{{ apt_list }}"

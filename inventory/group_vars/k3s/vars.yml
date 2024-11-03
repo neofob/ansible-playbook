@@ -2,6 +2,11 @@
 # Default variables for all ephemeral nodes
 # rename to all.yml
 
+apt_list:
+  - "deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] http://us.archive.ubuntu.com/ubuntu noble noble-updates noble-backports"
+  - "deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] http://us.archive.ubuntu.com/ubuntu main restricted universe multiverse"
+  - "deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] http://security.ubuntu.com/ubuntu main restricted universe multiverse"
+
 sysctl_list:
   - name: "vm.dirty_writeback_centisecs"
     value: 6000

@@ -8,3 +8,4 @@
 - src: haxorof.docker_ce
 - src: mrlesmithjr.mdadm
   version: v0.1.2
+- src: dj-wasabi.telegraf

@@ -49,6 +49,8 @@ package_list:
   - flex
   - gcc
   - git
+  - glusterfs-cli
+  - glusterfs-client
   - hdparm
   - jq
   - libelf-dev
@@ -61,6 +63,7 @@ package_list:
   - pv
   - python3-dev
   - python3-pip
+  - rasdaemon
   - smartmontools
   - sshfs
   - sysstat
@@ -70,8 +73,6 @@ package_list:
   - virtualenvwrapper
   - xz-utils
   - zstd
-  - rasdaemon
-  - glusterfs-cli
 # Glusterfs setup for tini_glusterfs
 glusterfs_brick_dir: /opt/brick0
 glusterfs_vol_name: tinivol

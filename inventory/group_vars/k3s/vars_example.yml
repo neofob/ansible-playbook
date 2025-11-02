@@ -40,24 +40,31 @@ package_list:
   - bc
   - bison
   - build-essential
+  - btop
   - chrony
+  - colordiff
+  - cowsay
   - flex
   - git
+  - glusterfs-cli
+  - glusterfs-client
+  - jq
   - libelf-dev
   - libssl-dev
   - lm-sensors
+  - lolcat
   - lz4
   - mc
-  - network-manager
+  - neofetch
+  - net-tools
   - python3-pip
+  - smartmontools
   - sshfs
-  - sysstat
   - vim-nox
   - virtualenv
   - virtualenvwrapper
   - xz-utils
   - zstd
-
 # Glusterfs setup for pasture_glusterfs
 glusterfs_vol_name: pasture
 glusterfs_mount_dir: /mnt/pasture
@@ -65,10 +72,20 @@ glusterfs_server: k0.local
 
 ansible_ssh_user: vagrant
 ansible_python_interpreter: /usr/bin/python3
-ansible_sudo_pass: "vagrant"
+ansible_sudo_pass: "YourInsecurePasswdHere"
 
 tmpfs_mount_dir: /tmp
 tmpfs_size: 1G
 
-docker_compose_url: https://github.com/docker/compose/releases/download/v2.29.3/docker-compose-linux-x86_64
-docker_compose_sha256: 241b75fe0f8194a48d01f99d683aa1100579b21caa60d2d78c9c824855c57937
+docker_user_list:
+  - vagrant
+  - telegraf
+
+docker_compose_url: https://github.com/docker/compose/releases/download/v2.40.3/docker-compose-linux-x86_64
+docker_compose_sha256: dba9d98e1ba5bfe11d88c99b9bd32fc4a0624a30fafe68eea34d61a3e42fd372
+
+host_list:
+  - ipv4_address: "127.0.0.1"
+    hostname: "us.archive.ubuntu.com"
+
+airgap_dir: ./k3s-airgap

@@ -1,0 +1,7 @@
+---
+- name: Setup local hosts file
+  lineinfile:
+    dest: /etc/hosts
+    line: "{{ item.ipv4_address }} {{ item.hostname }}"
+    state: present
+  loop: "{{ host_list }}"

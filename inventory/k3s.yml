@@ -8,13 +8,25 @@ all:
     k1.local:
     k2.local:
     k3.local:
+    k4.local:
   children:
+    k3s_cluster:
+      hosts:
+        k0.local:
+        k1.local:
+    master:
+      hosts:
+        k0.local:
+    node:
+      hosts:
+        k1.local:
     k3s:
       hosts:
         k0.local:
         k1.local:
         k2.local:
         k3.local:
+        k4.local:
     server:
       hosts:
         k0.local:
@@ -23,12 +35,21 @@ all:
         k1.local:
         k2.local:
         k3.local:
+        k4.local:
+    metrics:
+      hosts:
+        k0.local:
+        k1.local:
+        k2.local:
+        k3.local:
+        k4.local:
     glusterfs:
       hosts:
         k0.local:
         k1.local:
         k2.local:
         k3.local:
+        k4.local:
     mdadm:
       hosts:
         k0.local:

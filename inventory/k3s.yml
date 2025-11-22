@@ -14,12 +14,14 @@ all:
       hosts:
         k0.local:
         k1.local:
+        k2.local:
     master:
       hosts:
         k0.local:
     node:
       hosts:
         k1.local:
+        k2.local:
     k3s:
       hosts:
         k0.local:

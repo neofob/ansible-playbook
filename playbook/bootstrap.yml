@@ -5,3 +5,6 @@
   tasks:
   - name:
     command: apt-get install -yq python3-apt
+  - name: Setup local hosts file
+    include_tasks: tasks/setup_hosts.yml
+

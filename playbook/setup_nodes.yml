@@ -7,8 +7,6 @@
       include_tasks: tasks/sysconfig.yml
     - name: Setup tmpfs
       include_tasks: tasks/setup_tmpfs.yml
-    - name: Setup local hosts file
-      include_tasks: tasks/setup_hosts.yml
     - name: Install packages
       include_tasks: tasks/packages.yml
     - name: Setup dot files

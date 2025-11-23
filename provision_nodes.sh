@@ -3,7 +3,7 @@
 # time INVENTORY=./inventory/k3s.yml ./provision.sh k3s_cluster
 set -e
 
-INVENTORY=${INVENTORY=-"./inventory/my_rack.yml"}
+INVENTORY=${INVENTORY:-"./inventory/my_rack.yml"}
 
 echo "Setting up node(s) $@"
 ansible -i ${INVENTORY} $@ -m ping

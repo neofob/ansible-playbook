@@ -1,0 +1,7 @@
+---
+# Custom NVIDIA/PCIE ids for each node here
+# Get the list from `lspci -nn | grep -i nvidia`
+# Nvidia RTX 3070 Mobile
+pve_pci_device_ids:
+  - id: "10de:249d"
+  - id: "10de:228b"

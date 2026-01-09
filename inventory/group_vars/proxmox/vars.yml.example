@@ -1,0 +1,21 @@
+---
+### General settings for proxmox nodes
+
+pve_pcie_passthrough_enabled: true
+pve_iommu_passthrough_mode: true
+pve_iommu_unsafe_interrupts: true
+pve_pcie_ovmf_enabled: true
+
+# Set in each host var as seach node might have different devices
+# pve_pci_device_ids:
+#  - id: "10de:1381"
+#  - id: "10de:0fbc"
+pve_pci_device_ids: []
+pve_vfio_blacklist_drivers:
+  - name: "nouveau"
+  - name: "nvidia"
+pve_pcie_ignore_msrs: true
+pve_pcie_report_msrs: false
+
+tmpfs_mount_dir: /tmp
+tmpfs_size: 8G

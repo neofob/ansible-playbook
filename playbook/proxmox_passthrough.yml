@@ -1,0 +1,8 @@
+---
+# Setup GPU passthrough for Proxmox Host
+# See settings in group_vars of proxmox group and host_vars for each host
+- hosts: all
+  become: True
+  roles:
+    - role: lae.proxmox
+      pve_reboot_on_kernel_update: true

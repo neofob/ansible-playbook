@@ -1,0 +1,17 @@
+---
+# Example inventory for all hosts
+all:
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  hosts:
+    pve0:
+    pve1:
+    pve2:
+    pve3:
+  children:
+    proxmox:
+      hosts:
+        pve0:
+        pve1:
+        pve2:
+        pve3:

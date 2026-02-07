@@ -1,0 +1,7 @@
+---
+# https://github.com/riemers/ansible-gitlab-runner
+- hosts: all
+  become: true
+  gather_facts: true
+  roles:
+    - riemers.gitlab-runner

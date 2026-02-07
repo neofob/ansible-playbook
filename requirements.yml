@@ -1,15 +1,16 @@
 ---
 # from galaxy
 roles:
-  - src: geerlingguy.glusterfs
+  # - src: geerlingguy.glusterfs
   # - src: nickjj.docker
   # - src: andrewrothstein.gitlab-ci-multi-runner
   # - src: DavidWittman.redis
   - src: andrewrothstein.virtualbox
-  - src: haxorof.docker_ce
-  - src: mrlesmithjr.mdadm
   - src: dj-wasabi.telegraf
+  - src: haxorof.docker_ce
   - src: lae.proxmox
+  - src: mrlesmithjr.mdadm
+  - src: riemers.gitlab-runner
 
 collections:
   - name: https://github.com/k3s-io/k3s-ansible.git

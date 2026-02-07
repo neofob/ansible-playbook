@@ -1,0 +1,103 @@
+---
+# Default variables for all gitlab-runner nodes
+package_list:
+  - bc
+  - bison
+  - btop
+  - build-essential
+  - chrony
+  - colordiff
+  - flex
+  - git
+  - hdparm
+  - htop
+  - iperf3
+  - jq
+  - libelf-dev
+  - libssl-dev
+  - lm-sensors
+  - lolcat
+  - lz4
+  - mc
+  - neofetch
+  - net-tools
+  - openvpn
+  - python3-pip
+  - smartmontools
+  - speedtest-cli
+  - sshfs
+  - sysstat
+  - tree
+  - vim-nox
+  - virtualenv
+  - virtualenvwrapper
+  - xz-utils
+  - zstd
+
+# Customize to your system
+#docker_user_list:
+#  - gitlab-runner
+#  - telegraf
+
+# non-user login user
+# ansible_ssh_user: ubuntu
+ansible_python_interpreter: /usr/bin/python3
+
+docker_compose_url: https://github.com/docker/compose/releases/download/v5.0.1/docker-compose-linux-x86_64
+docker_compose_sha256: cdc1df64412ed009312afbc044b3625144d06c07736e2f7a77fb0460531b9327
+
+# Gitlab specific info for gitlab-internal
+gitlab_runner_coordinator_url: "https://gitlab.yourdomain.local/"
+gitlab_runner_registration_token_type: "authentication-token"
+
+group_id_list:
+  - name: gitlab-runner
+    gid: 988
+  - name: docker
+    gid: 987
+
+user_id_list:
+  - name: gitlab-runner
+    uid: 988
+    home: "/home/gitlab-runner"
+    shell: "/bin/bash"
+    groups: "gitlab-runner,docker"
+
+# Your list of dirs that would be volume mounted
+#dir_list:
+#  - /media/iso
+
+sysctl_list:
+  - name: "vm.dirty_writeback_centisecs"
+    value: 6000
+    state: present
+  - name: "vm.dirty_ratio"
+    value: 80
+    state: present
+  - name: "vm.dirty_background_ratio"
+    value: 50
+    state: present
+  - name: "vm.swappiness"
+    value: 1
+    state: present
+  - name: "vm.vfs_cache_pressure"
+    value: 100
+    state: present
+  - name: "vm.page-cluster"
+    value: 0
+    state: present
+  - name: "net.ipv6.conf.all.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.default.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.lo.disable_ipv6"
+    value: 1
+    state: present
+
+tmpfs_mount_dir: /tmp
+tmpfs_size: 1G
+
+# Your passwd here
+#ansible_sudo_pass: "YourPasswdHere"

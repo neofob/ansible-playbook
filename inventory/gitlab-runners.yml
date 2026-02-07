@@ -1,0 +1,14 @@
+---
+# Example inventory for gitlab-runner hosts
+all:
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  hosts:
+    road-runner:
+  children:
+    gitlab_runners:
+      hosts:
+        road-runner:
+    metrics:
+      hosts:
+        road-runner:

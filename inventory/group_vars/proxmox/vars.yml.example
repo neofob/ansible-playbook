@@ -1,6 +1,78 @@
 ---
 ### General settings for proxmox nodes
 
+sysctl_list:
+  - name: "net.ipv4.ip_forward"
+    value: 1
+    state: present
+  - name: "vm.dirty_writeback_centisecs"
+    value: 6000
+    state: present
+  - name: "vm.dirty_ratio"
+    value: 80
+    state: present
+  - name: "vm.dirty_background_ratio"
+    value: 50
+    state: present
+  - name: "vm.swappiness"
+    value: 1
+    state: present
+  - name: "vm.vfs_cache_pressure"
+    value: 100
+    state: present
+  - name: "vm.page-cluster"
+    value: 0
+    state: present
+  - name: "net.ipv6.conf.all.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.default.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.lo.disable_ipv6"
+    value: 1
+    state: present
+  - name: "fs.inotify.max_user_watches"
+    value: 9999999
+    state: present
+  - name: "fs.inotify.max_user_instances"
+    value: 9999999
+    state: present
+
+package_list:
+  - bc
+  - btop
+  - nvtop
+  - chrony
+  - colordiff
+  - cowsay
+  - etckeeper
+  - fastfetch
+  - flex
+  - git
+  - glusterfs-cli
+  - glusterfs-client
+  - glusterfs-common
+  - jq
+  - libelf-dev
+  - libssl-dev
+  - lm-sensors
+  - lolcat
+  - lz4
+  - mc
+  - mdadm
+  - pv
+  - python3-dev
+  - python3-pip
+  - sshfs
+  - sysstat
+  - tree
+  - vim-nox
+  - virtualenv
+  - virtualenvwrapper
+  - xz-utils
+  - zstd
+
 pve_pcie_passthrough_enabled: true
 pve_iommu_passthrough_mode: true
 pve_iommu_unsafe_interrupts: true
@@ -18,4 +90,6 @@ pve_pcie_ignore_msrs: true
 pve_pcie_report_msrs: false
 
 tmpfs_mount_dir: /tmp
-tmpfs_size: 8G
+tmpfs_size: 4G
+
+ansible_ssh_user: root

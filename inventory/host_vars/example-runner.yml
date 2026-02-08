@@ -1,9 +1,9 @@
 ---
 # A list of runners to register and configure for this VM
 gitlab_runner_runners:
-  - name: "shell-runner"
+  - name: "{{ shell_runner_name }}"
     limit: 0
-    token: "{{ shell_runner_name }}"
+    token: "{{ shell_runner_token }}"
     # set to 'absent' if you want to delete the runner. Defaults to 'present'.
     state: present
     # The executor used by the runner.
@@ -23,9 +23,9 @@ gitlab_runner_runners:
     locked: "true"
     env_vars: []
 
-  - name: "dind-runner"
+  - name: "{{ dind_runner_name }}"
     limit: 0
-    token: "{{ dind_runner_name }}"
+    token: "{{ dind_runner_token }}"
     executor: docker
     output_limit: 8192
     docker_image: "docker:29.2.1-dind"
@@ -45,9 +45,9 @@ gitlab_runner_runners:
         oom_kill_disable: false
         disable_cache: false
 
-  - name: "docker-runner"
+  - name: "{{ docker_runner_name }}"
     limit: 0
-    token: "{{ docker_runner_name }}"
+    token: "{{ docker_runner_token }}"
     executor: docker
     output_limit: 8192
     # this can be overwritten by setting in .gitlab-ci.yml

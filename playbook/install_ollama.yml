@@ -1,0 +1,52 @@
+---
+- name: Install and configure Ollama service
+  hosts: all                     # adjust to your inventory/group
+  become: yes                    # root needed for file copies & systemd
+  vars:
+    ollama_version: "0.20.6"
+    ollama_archive: "ollama-linux-amd64.tar.zst"
+    ollama_url: >-
+      https://github.com/ollama/ollama/releases/download/v{{ ollama_version }}/{{ ollama_archive }}
+    ollama_install_dir: "/usr/local"
+    ollama_service_user: "vagrant"
+    ollama_service_group: "vagrant"
+
+  tasks:
+    - name: Download Ollama tarball
+      get_url:
+        url: "{{ ollama_url }}"
+        dest: "/tmp/{{ ollama_archive }}"
+        mode: '0644'
+      register: download_result
+      until: download_result is succeeded
+      retries: 3
+      delay: 5
+
+    - name: Extract Ollama to {{ ollama_install_dir }}
+      command: >
+        tar -I zstd -xvf /tmp/{{ ollama_archive }}
+        -C {{ ollama_install_dir }}
+      args:
+        creates: "{{ ollama_install_dir }}/bin/ollama"   # idempotency guard
+      notify: Reload systemd
+
+    - name: Deploy Ollama systemd service unit (template)
+      template:
+        src: ollama.service.j2
+        dest: /etc/systemd/system/ollama.service
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Reload systemd
+
+    - name: Enable and start Ollama service
+      systemd:
+        name: ollama
+        enabled: yes
+        state: started
+        daemon_reload: yes   # ensure systemd picks up the new/updated unit
+
+  handlers:
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes

@@ -1,0 +1,103 @@
+---
+# Default variables for all ephemeral nodes
+# rename to all.yml
+
+sysctl_list:
+  - name: "vm.dirty_writeback_centisecs"
+    value: 6000
+    state: present
+  - name: "vm.dirty_ratio"
+    value: 80
+    state: present
+  - name: "vm.dirty_background_ratio"
+    value: 50
+    state: present
+  - name: "vm.swappiness"
+    value: 1
+    state: present
+  - name: "vm.vfs_cache_pressure"
+    value: 100
+    state: present
+  - name: "vm.page-cluster"
+    value: 0
+    state: present
+  - name: "net.ipv6.conf.all.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.default.disable_ipv6"
+    value: 1
+    state: present
+  - name: "net.ipv6.conf.lo.disable_ipv6"
+    value: 1
+    state: present
+
+package_list:
+  - apt-file
+  - apt-show-versions
+  - bc
+  - bison
+  - borgbackup
+  - btop
+  - build-essential
+  - chrony
+  - fdisk
+  - flex
+  - fuse3
+  - gdisk
+  - git
+  - gvfs-fuse
+  - glusterfs-cli
+  - glusterfs-client
+  - hdparm
+  - iperf3
+  - libacl1
+  - libacl1-dev
+  - libelf-dev
+  - libfuse3-dev
+  - liblz4-dev
+  - liblzf1
+  - libqt6core6t64
+  - libqt6dbus6t64
+  - libqt6help6
+  - libqt6printsupport6t64
+  - libqt6statemachine6
+  - libqt6widgets6t64
+  - libqt6xml6t64
+  - libssl-dev
+  - libssl-dev
+  - libtpms0
+  - libxxhash-dev
+  - libzstd-dev
+  - lm-sensors
+  - lz4
+  - mc
+  - neofetch
+  - network-manager
+  - nvtop
+  - openvpn
+  - pkg-config
+  - python3
+  - python3-dev
+  - python3-pip
+  - python3-pip
+  - python3-pkgconfig
+  - python3-virtualenv
+  - smartmontools
+  - sshfs
+  - sysstat
+  - vim-nox
+  - virtualenv
+  - virtualenvwrapper
+  - xz-utils
+  - zerofree
+  - zstd
+  - tree
+
+ansible_ssh_user: root
+ansible_python_interpreter: /usr/bin/python3
+
+tmpfs_mount_dir: /tmp
+tmpfs_size: 256M
+
+docker_compose_url: https://github.com/docker/compose/releases/download/v5.1.2/docker-compose-linux-x86_64
+docker_compose_sha256: c372e512a36e67716b0b3a1264ccdc461dec7a7beff601b81f7c5fb008e3511e

@@ -1,0 +1,12 @@
+---
+# Add users to docker group
+- name: Add user(s) to docker group
+  ansible.builtin.user:
+    name: "{{ docker_user }}"
+    group: docker
+    state: present
+    append: true
+  loop: "{{ docker_user_list }}"
+  loop_control:
+    index_var: docker_user_index
+    loop_var: docker_user

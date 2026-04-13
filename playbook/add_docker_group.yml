@@ -1,0 +1,10 @@
+---
+# Add the list of users to docker group
+# Equivalence of `usermod -aG docker username
+# Ref: https://serverfault.com/questions/542910/adding-a-user-to-an-additional-group-using-ansible
+
+- hosts: all
+  become: yes
+  tasks:
+    - name: Add users to docker group
+      include_tasks: tasks/docker_group.yml
